@@ -1,4 +1,4 @@
-const CACHE='tek-bhp-202f3c7bb5fdc7',SHELL=['./','./index.html','./logo-tek.svg','./manifest.webmanifest'];
+const CACHE='tek-bhp-1276fb351e1e76',SHELL=['./','./index.html','./logo-tek.svg','./manifest.webmanifest','./pomoc.html'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL))));
 self.addEventListener('message',e=>{if(e.data==='ACTIVATE')self.skipWaiting();});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('tek-bhp-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
